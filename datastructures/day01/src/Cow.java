@@ -9,7 +9,7 @@ public class Cow {
         this.color = color;
     }
 
-    @Override
+
     public boolean equals(Object o){
         Cow other = (Cow)o;
         return other.name.equals(name) && other.age == age && other.color.equals(color);
