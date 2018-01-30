@@ -36,8 +36,10 @@ public class MyArrayListTest {
 
     @Test
     public void testRemove(){
+
         cows.remove(1);
         cows.remove(1);
+
         assertEquals(2,cows.size());
         assertEquals(JIMY,cows.get(1));
     }
