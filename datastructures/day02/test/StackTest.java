@@ -26,7 +26,7 @@ public class StackTest {
     @Test
     public void testStack() {
         stack.push(3);
-        int e = stack.pop();
+        int e = (int) stack.pop();
         assertEquals(e, 3);
 
         int bigNumber = 6;
@@ -36,7 +36,7 @@ public class StackTest {
         stack.pop();
         stack.pop();
         stack.pop();
-        e = stack.pop();
+        e = (int) stack.pop();
         assertEquals(e, 1);
 
         assertEquals(stack.isEmpty(), true);
@@ -56,7 +56,9 @@ public class StackTest {
         assertEquals((int) stack.maxElement(), bigNumber);
 
         stack.pop();
+        assertEquals((int) stack.maxElement(), 4);
         stack.pop();
+        assertEquals((int) stack.maxElement(), 4);
         stack.pop();
         assertEquals((int) stack.maxElement(), 1);
     }
