@@ -7,6 +7,7 @@ import java.util.LinkedList;
  * An implementation of the Stack interface.
  */
 public class MyStack implements StackADT<Integer> {
+    // Queue and Stack are for when you know you only want that functionality and that you do not want more funcitonality than you need
 
     private LinkedList<Integer> ll;
     private LinkedList<Integer> llmax;

@@ -69,6 +69,7 @@ public class MyLinkedList {
     }
 
     public Chicken get(int index) {
+        // next time use the size variable to have it return null if the index is out of bounds
         Node target = head;
         int count = 0;
         while(target != null){
