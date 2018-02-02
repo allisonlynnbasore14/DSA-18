@@ -71,6 +71,7 @@ public class MyLinkedListTest {
     @Test
     public void testAddFirst() {
         chickens.addFirst(JAQUAN);
+
         assertEquals(5, chickens.size());
 
         chickens.addFirst(LEGOS);
