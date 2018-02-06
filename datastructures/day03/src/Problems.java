@@ -50,6 +50,35 @@ public class Problems {
     }
 
 
+
+    public static List<Integer> removeKDigitsAlternative(int[] A, int k) {
+
+        int outputTotal = 0;
+        Stack<Integer> stack = new Stack<>();
+
+
+        for(int i = 0; i <= k; i++){
+            if(!stack.isEmpty()){
+                stack.push(A[i]);
+                outputTotal ++;
+            }else{
+                if(stack.peek() < A[i]){
+                    stack.push(A[i]);
+                    outputTotal ++;
+                }else{
+                    stack.pop();
+                    outputTotal --;
+                }
+            }
+
+        }
+
+        return stack;
+    }
+
+
+
+
     public static boolean isPalindrome(Node n) {
         // 1) find length with one fast/ one slow method
         // 2) See if there is a mid node
