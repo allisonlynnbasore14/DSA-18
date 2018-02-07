@@ -53,7 +53,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
         // TODO
         // hint: use key.hashCode() to calculate the key's hashCode using its built in hash function
         // then use % to choose which bucket to return.
-        return null;
+        return key.hashCode()%size();
     }
 
     @Override
@@ -71,8 +71,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public boolean containsKey(Object key) {
-        // TODO
-        return false;
+        if(this.get(key) == null ){
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -80,8 +82,9 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public boolean containsValue(Object value) {
-        // TODO
-        return false;
+        if(this.get(key) == null ){
+            return false;
+        }
     }
 
     @Override
