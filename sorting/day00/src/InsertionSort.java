@@ -6,7 +6,7 @@ public class InsertionSort extends SortAlgorithm {
      *
      * Best-case runtime: O(N)
      * Worst-case runtime: O(N)^2
-     * Average-case runtime:
+     * Average-case runtime: ??
      *
      * Space-complexity: O(1)
      */

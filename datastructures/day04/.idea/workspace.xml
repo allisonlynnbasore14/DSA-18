@@ -24,8 +24,8 @@
       <file leaf-file-name="MyHashMap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MyHashMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+            <state relative-caret-position="612">
+              <caret line="236" column="46" lean-forward="true" selection-start-line="236" selection-start-column="8" selection-end-line="236" selection-end-column="46" />
               <folding>
                 <element signature="e#687#688#0" expanded="true" />
                 <element signature="e#727#728#0" expanded="true" />
@@ -45,7 +45,7 @@
       <file leaf-file-name="MyHashMapTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/MyHashMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1476">
+            <state relative-caret-position="864">
               <caret line="90" column="44" lean-forward="false" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -106,9 +106,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="75" />
+    <option name="x" value="73" />
     <option name="y" value="24" />
-    <option name="width" value="1849" />
+    <option name="width" value="1847" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -364,9 +364,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MyHashMapTest - 2018.02.08 at 07h 55m 18s.xml">
-      <configuration name="MyHashMapTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MyHashMapTest - 2018.02.08 at 07h 55m 47s.xml">
       <configuration name="MyHashMapTest" configurationId="JUnit" />
     </history-entry>
@@ -394,13 +391,17 @@
     <history-entry file="MyHashMapTest - 2018.02.08 at 20h 21m 01s.xml">
       <configuration name="MyHashMapTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MyHashMapTest - 2018.02.11 at 08h 37m 21s.xml">
+      <configuration name="MyHashMapTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="24" width="1849" height="1056" extended-state="4" />
+    <frame x="73" y="24" width="1847" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32247898" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -415,7 +416,6 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915967" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32247898" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1026,7 +1026,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/MyHashMapTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1476">
+        <state relative-caret-position="864">
           <caret line="90" column="44" lean-forward="false" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1038,8 +1038,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+        <state relative-caret-position="612">
+          <caret line="236" column="46" lean-forward="true" selection-start-line="236" selection-start-column="8" selection-end-line="236" selection-end-column="46" />
           <folding>
             <element signature="e#687#688#0" expanded="true" />
             <element signature="e#727#728#0" expanded="true" />
