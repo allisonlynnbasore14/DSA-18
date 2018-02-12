@@ -21,7 +21,7 @@ public class Boomerang {
                 if(p == i){
                     continue;
                 }
-                int dist = distCal(points[i][0], points[i][1], points[p][0], points[p][1]);
+                double dist = distCal(points[i][0], points[i][1], points[p][0], points[p][1]);
                 if(hm.get(dist) != null){
                     hm.put(dist, (int) hm.get(dist)+ 1);
 
@@ -31,26 +31,27 @@ public class Boomerang {
 
             }
 
+
             Collection set = hm.values();
-            int subTotal = 0;
             for (Object s : set) {
                 if((int)s > 1){
-                    subTotal = subTotal + (int) s;
+
+                    total = total + (int) s * ( (int) s - 1);//subTotal + (int) s;
                 }
             }
 
-            total = total + subTotal/2;
+            //total = total + subTotal;
 
         }
 
         return total;
     }
 
-    public static int distCal(int x1, int y1, int x2, int y2){
-        int a = x2-x1;
-        int b = y2-y1;
-        int c = a^2 + b^2;
-        return (int) Math.sqrt(c);
+    public static double distCal(int x1, int y1, int x2, int y2){
+        double a = x2-x1;
+        double b = y2-y1;
+        double c = a*a + b*b;
+        return Math.sqrt(c);
     }
 }
 
