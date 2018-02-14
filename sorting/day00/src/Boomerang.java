@@ -15,6 +15,8 @@ public class Boomerang {
 
         int total = 0;
 
+        // bring out the hashmap
+
         for(int i = 0; i < points.length; i++){
             HashMap hm = new HashMap();
             for(int p = 0; p < points.length; p++){

@@ -10,14 +10,32 @@ public class MergeSort extends SortAlgorithm {
      * Use Insertion Sort if the length of the array is <= INSERTION_THRESHOLD
      *
      *
-     * Best-case runtime: O(N)
+     * Best-case runtime: O(N log N)
      * Worst-case runtime: O(N log N)
-     * Average-case runtime:
+     * Average-case runtime: O(N log N)
      *
      * Space-complexity: O(N)
      */
     @Override
     public int[] sort(int[] array) {
+
+        if(array.length < INSERTION_THRESHOLD){
+            if(array.length == 0 || array.length == 1){
+                return array;
+            }
+            for ( int i = 1; i < array.length ; i++){
+                int b = i;
+                int c = i-1;
+                while(c >= 0 && array[c] > array[b]) {
+                    array[c + 1] = array[c];
+                    c = c - 1;
+                }
+                array[c + 1] = array[b];
+            }
+
+            return array;
+        }
+
         int n = array.length;
         if(n == 1){
             return array;
@@ -70,3 +88,4 @@ public class MergeSort extends SortAlgorithm {
     }
 
 }
+
