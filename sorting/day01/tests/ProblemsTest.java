@@ -36,5 +36,8 @@ public class ProblemsTest {
         assertTrue(Arrays.equals(Problems.runningMedian(nineCase), Problems.runningMedianReallySlow(nineCase)));
         assertTrue(Arrays.equals(Problems.runningMedian(twoCase), Problems.runningMedianReallySlow(twoCase)));
         assertTrue(Arrays.equals(Problems.runningMedian(longCase), Problems.runningMedianReallySlow(longCase)));
+
     }
+
+
 }

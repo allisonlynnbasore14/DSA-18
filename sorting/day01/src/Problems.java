@@ -43,7 +43,11 @@ public class Problems {
     public static double[] runningMedian(int[] inputStream) {
         double[] runningMedian = new double[inputStream.length];
         if(inputStream.length < 1){
-            return null;
+            return runningMedian;
+        }
+        if(inputStream.length == 1){
+            runningMedian[0] = inputStream[0];
+            return runningMedian;
         }
         // divide in half
         // make one max and one min pq
@@ -51,10 +55,40 @@ public class Problems {
         PriorityQueue<Integer> firstHalf = maxPQ();
         PriorityQueue<Integer> secondHalf = minPQ();
 
+        // starting with the empty queues
+        // add only one elemnt at a time
+        // also in that for loop, calc the median
+        for(int m = 0; m < inputStream.length; m ++){
+            if(m == 0 || inputStream[m] <= firstHalf.peek())
+            {
+                firstHalf.offer(inputStream[m]);
+            }else{
+                secondHalf.offer(inputStream[m]);
+            }
 
-        if(inputStream.length % 2 != 0){
+            if(firstHalf.size() < secondHalf.size()){
+                firstHalf.offer(secondHalf.poll());
+            }
+            if(firstHalf.size()-1 > secondHalf.size()){
+                secondHalf.offer(firstHalf.poll());
+            }
+
+            if(firstHalf.size() < 1){
+                return runningMedian;
+            }
+            if(firstHalf.size() > secondHalf.size()){
+                // odd
+                runningMedian[m] = firstHalf.peek();
+            }else{
+                // even
+                //System.out.println("dd");
+                runningMedian[m] = (firstHalf.peek() + secondHalf.peek())/2.0;
+            }
+
+        }
+        /*if(inputStream.length % 2 != 0){
             // it is odd
-            for(int i = 0; i <= (int) (inputStream.length/2 - 1.0); i ++){
+            for(int i = 0; i <= (int) (inputStream.length/2 )-1; i ++){
                 firstHalf.offer(inputStream[i]);
             }
             for(int i = (int) (inputStream.length/2 - 1.0); i < inputStream.length; i ++){
@@ -62,7 +96,7 @@ public class Problems {
             }
         }else{
             // it is even
-            for(int i = 0; i <= (int) (inputStream.length/2 ); i ++){
+            for(int i = 0; i < (int) (inputStream.length/2 ); i ++){
                 firstHalf.offer(inputStream[i]);
             }
             for(int i = (int) (inputStream.length/2); i < inputStream.length; i ++){
@@ -71,10 +105,22 @@ public class Problems {
         }
 
         // this need to be a for loop that colelcts them alll and returns them
-        if(firstHalf.size() > secondHalf.size()){
-            return firstHalf.peek();
-        }
-        return (firstHalf.peek() + secondHalf.peek())/2;
+        for(int k = 0; k < inputStream.length; k ++){
+            if(firstHalf.size() < 1 || secondHalf.size()<1){
+                return runningMedian;
+            }
+            if(firstHalf.size() > secondHalf.size()){
+                // odd
+                runningMedian[k] = firstHalf.poll();
+            }else{
+                // even
+                //System.out.println("dd");
+                //System.out.println(firstHalf.peek());
+                //System.out.println(secondHalf.peek());
+                runningMedian[k] = (firstHalf.peek() + secondHalf.peek()/2);
+            }
+        }*/
+        return runningMedian;
     }
 
 }
