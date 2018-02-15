@@ -10,9 +10,9 @@ By doing this assignment, you should be able to:
 * Avoid worst case performances (time and/or space) of Quick sort by randomly shuffling before sorting
 * Understand the heap sort algorithm:
   * Understand why building a heap is O(N) time
-  * Understand why heap sort is worst, average and best case O(NlogN) time
-  * Understand the O(1) space complexity of heap sort
-* Understand how to implement a priority queue
+  * Understand why heap sort is worst, avrerage and best case O(NlogN) time
+  * Understand the O(1) space complexity rrrrrrof heap sort
+* Understand how to implement a priority queue/home/allison/Documents/DSA/DSA-18/datastructures/day04
   * How to implement it using a max-heap
 
 ## Resources

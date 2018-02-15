@@ -1,4 +1,6 @@
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.Arrays;
 
 public class QuickSort extends SortAlgorithm {
 
@@ -12,15 +14,25 @@ public class QuickSort extends SortAlgorithm {
 
     /**
      * TODO
-     * Best-case runtime:
-     * Worst-case runtime:
-     * Average-case runtime:
+     * Best-case runtime: O(N log N), becuase it goes through the same process no matter what
+     * Worst-case runtime: O(N log N) (with randomization)
+     * Average-case runtime: O(N log N)
      *
-     * Space-complexity:
+     * Space-complexity: O(N log N)
+     * TODO: WHY THOUGH???
      */
     @Override
     public int[] sort(int[] array) {
-        // TODO: Sort the array. Make sure you avoid the O(N^2) runtime worst-case
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = array.length - 1; i > 0; i--)
+        {
+            int index = rnd.nextInt(i + 1);
+            int a = array[index];
+            array[index] = array[i];
+            array[i] = a;
+        }
+
+        quickSort(array, 0, array.length-1);
         return array;
     }
 
@@ -33,10 +45,15 @@ public class QuickSort extends SortAlgorithm {
      * @param hi The ending index of the subarray being considered (inclusive)
      */
     public void quickSort(int[] a, int lo, int hi) {
+        if(lo == hi){
+            return;
+        }
         if (lo < hi) {
             int p = partition(a, lo, hi);
-            // TODO
+            quickSort(a, lo, p-1);
+            quickSort(a, p+1, hi);
         }
+
     }
 
 
@@ -49,8 +66,26 @@ public class QuickSort extends SortAlgorithm {
      * @param hi The ending index of the subarray being considered (inclusive)
      */
     public int partition(int[] array, int lo, int hi) {
-        // TODO
-        return 0;
+        // place all the elements less than A[lo] before it and return the new index of A[lo]
+        int piv = array[lo];
+        int pivIndex = lo;
+        int count = 0;
+        for(int i = lo; i <= hi; i++ ){
+            if(array[i] < piv){
+                int smallVal = array[i];
+                int nextSlot = piv;
+                for(int j = pivIndex; j< i;j++ ){
+                    int holder = array[j+1];
+                    array[j+1] = nextSlot;
+                    nextSlot = holder;
+                }
+                count ++;
+                array[pivIndex] = smallVal;
+                pivIndex = count + lo;
+            }
+        }
+        return pivIndex;
     }
 
 }
+
