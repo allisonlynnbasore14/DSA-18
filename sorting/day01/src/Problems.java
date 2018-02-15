@@ -42,8 +42,39 @@ public class Problems {
      */
     public static double[] runningMedian(int[] inputStream) {
         double[] runningMedian = new double[inputStream.length];
-        // TODO
-        return runningMedian;
+        if(inputStream.length < 1){
+            return null;
+        }
+        // divide in half
+        // make one max and one min pq
+        // make mech for redingin median
+        PriorityQueue<Integer> firstHalf = maxPQ();
+        PriorityQueue<Integer> secondHalf = minPQ();
+
+
+        if(inputStream.length % 2 != 0){
+            // it is odd
+            for(int i = 0; i <= (int) (inputStream.length/2 - 1.0); i ++){
+                firstHalf.offer(inputStream[i]);
+            }
+            for(int i = (int) (inputStream.length/2 - 1.0); i < inputStream.length; i ++){
+                secondHalf.offer(inputStream[i]);
+            }
+        }else{
+            // it is even
+            for(int i = 0; i <= (int) (inputStream.length/2 ); i ++){
+                firstHalf.offer(inputStream[i]);
+            }
+            for(int i = (int) (inputStream.length/2); i < inputStream.length; i ++){
+                secondHalf.offer(inputStream[i]);
+            }
+        }
+
+        // this need to be a for loop that colelcts them alll and returns them
+        if(firstHalf.size() > secondHalf.size()){
+            return firstHalf.peek();
+        }
+        return (firstHalf.peek() + secondHalf.peek())/2;
     }
 
 }
