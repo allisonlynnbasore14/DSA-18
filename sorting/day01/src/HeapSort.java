@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class HeapSort extends SortAlgorithm {
     int size;
     int[] heap;
@@ -18,7 +20,54 @@ public class HeapSort extends SortAlgorithm {
     // Corrects the position of element indexed i by sinking it.
     // Use either recursion or a loop to then sink the child
     public void sink(int i) {
-        // TODO
+        // if A[i] >= bothchildren (if they exist);
+            // stop
+        // child index = index of largest child
+        //swap(A, i, index)
+        //wink(A, index)
+        boolean leftChildExists = false;
+        boolean rightChildExists = false;
+        if(leftChild(i) >= 0 && leftChild(i) < size){
+            leftChildExists = true;
+        }
+        if(rightChild(i) >= 0 && rightChild(i) < size){
+            rightChildExists = true;
+        }
+
+        if(!leftChildExists && !rightChildExists){
+            return;
+        }
+        if(leftChildExists){
+            if( heap[i] >= heap[leftChild(i)]){
+                if(rightChildExists){
+                    if(heap[i] >= heap[rightChild(i)]){
+                        return;
+                    }
+                }else{
+                    return; // if there is no right child but the left is higher
+                }
+            }
+        }
+        int childIndex = 0;
+        if(leftChildExists && !rightChildExists || !leftChildExists && rightChildExists){
+            if(leftChildExists){
+                childIndex = leftChild(i);
+                swap(i, childIndex);
+                sink(childIndex);
+            }else{
+                childIndex = rightChild(i);
+                swap(i, childIndex);
+                sink(childIndex);
+            }
+        }else{
+            if(heap[leftChild(i)]>heap[rightChild(i)]){
+                childIndex = leftChild(i);
+            }else{
+                childIndex = rightChild(i);
+            }
+            swap(i, childIndex);
+            sink(childIndex);
+        }
     }
 
     // Given the array, build a heap by correcting every non-leaf's position, starting from the bottom, then
@@ -28,23 +77,34 @@ public class HeapSort extends SortAlgorithm {
         this.size = array.length;
 
         for (int i=this.size / 2 - 1; i>=0; i--) {
-            // TODO
+            sink(i);
         }
     }
 
+    public void swap(int i, int index){
+        int holder = heap[i];
+        heap[i] = heap[index];
+        heap[index] = holder;
+    }
+
     /**
-     * Best-case runtime:
-     * Worst-case runtime:
-     * Average-case runtime:
+     * Best-case runtime: O(N log N), because it goes through everything still
+     * Worst-case runtime: O(N log N)
+     * Average-case runtime: O(N log N)
      *
-     * Space-complexity:
+     * Space-complexity: O(1), all in place!
      */
     @Override
     public int[] sort(int[] array) {
         heapify(array);
 
         for (int i=size-1; i>0; i--) {
-            // TODO
+            int top = heap[0];
+            heap[0] = heap[i];
+            heap[i] = top;
+            //heap = Arrays.copyOfRange(heap, 1, size);
+            size--;
+            sink(0);
         }
 
         return heap;
