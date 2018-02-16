@@ -59,6 +59,9 @@ public class Problems {
         // add only one elemnt at a time
         // also in that for loop, calc the median
         for(int m = 0; m < inputStream.length; m ++){
+            // for each part of the input
+
+            // place the value in the first or second PQ
             if(m == 0 || inputStream[m] <= firstHalf.peek())
             {
                 firstHalf.offer(inputStream[m]);
@@ -66,6 +69,7 @@ public class Problems {
                 secondHalf.offer(inputStream[m]);
             }
 
+            // balance out the sides if necessary
             if(firstHalf.size() < secondHalf.size()){
                 firstHalf.offer(secondHalf.poll());
             }
@@ -73,19 +77,25 @@ public class Problems {
                 secondHalf.offer(firstHalf.poll());
             }
 
+            // lone case
             if(firstHalf.size() < 1){
                 return runningMedian;
             }
+
+            // return the median depending if it is even or odd
             if(firstHalf.size() > secondHalf.size()){
                 // odd
                 runningMedian[m] = firstHalf.peek();
             }else{
                 // even
-                //System.out.println("dd");
                 runningMedian[m] = (firstHalf.peek() + secondHalf.peek())/2.0;
             }
 
         }
+        return runningMedian;
+    }
+
+}
         /*if(inputStream.length % 2 != 0){
             // it is odd
             for(int i = 0; i <= (int) (inputStream.length/2 )-1; i ++){
@@ -120,7 +130,3 @@ public class Problems {
                 runningMedian[k] = (firstHalf.peek() + secondHalf.peek()/2);
             }
         }*/
-        return runningMedian;
-    }
-
-}

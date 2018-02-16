@@ -102,7 +102,6 @@ public class HeapSort extends SortAlgorithm {
             int top = heap[0];
             heap[0] = heap[i];
             heap[i] = top;
-            //heap = Arrays.copyOfRange(heap, 1, size);
             size--;
             sink(0);
         }
