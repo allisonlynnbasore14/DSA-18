@@ -75,7 +75,7 @@ public class HeapSort extends SortAlgorithm {
     public void heapify(int[] array) {
         this.heap = array;
         this.size = array.length;
-
+        // setting the bottom row first and go up with each calll so you dont have to do all of them
         for (int i=this.size / 2 - 1; i>=0; i--) {
             sink(i);
         }

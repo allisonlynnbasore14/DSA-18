@@ -18,7 +18,7 @@ public class QuickSort extends SortAlgorithm {
      * Worst-case runtime: O(N log N) (with randomization)
      * Average-case runtime: O(N log N)
      *
-     * Space-complexity: O(N log N)
+     * Space-complexity: O(log N)
      * TODO: WHY THOUGH???
      */
     @Override
