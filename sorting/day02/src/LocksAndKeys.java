@@ -4,53 +4,24 @@ import java.util.concurrent.ThreadLocalRandom;
 public class LocksAndKeys {
 
 
-    // Need to look into the why of the times and such
+    // Why can you not sort them?
+
     private static void swap(char[] A, int i, int j) {
         char t = A[i];
         A[i] = A[j];
         A[j] = t;
     }
     static char[][] locksAndKeys(char[] locks, char[] keys) {
-        // TODO: Return a 2d char array, where result[0] is the sorted locks, and result[1] is the sorted keys
-
-        //locks = sort(locks);
         char[][] result = new char[2][];
         result[0] = locks;
         result[1] = keys;
         quickSort(locks, keys, 0, locks.length-1);
-        for(int i = 0; i < locks.length; i++){
-            System.out.println(locks[i]);
-            System.out.println(keys[i]);
-            System.out.println("ATo");
-        }
         return result;
     }
 
 
     // Quick Sort Stuff
 
-    private void shuffleArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            int randIndex = ThreadLocalRandom.current().nextInt(i+1);
-            //swap(array, i, randIndex);
-        }
-    }
-
-    //public static char[] sort(char[] array1, char[] array2) {
-/*
-        Random rnd = ThreadLocalRandom.current();
-        for (int i = array.length - 1; i > 0; i--)
-        {
-            int index = rnd.nextInt(i + 1);
-            char a = array[index];
-            array[index] = array[i];
-            array[i] = a;
-        }
-*/
-
-
-        //return array;
-    //}
 
     public static void quickSort(char[] a, char[] b, int lo, int hi) {
         if(lo == hi){

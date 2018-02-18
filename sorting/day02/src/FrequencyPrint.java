@@ -12,15 +12,14 @@ public class FrequencyPrint {
 
         // sort uses O(N log N)
 
-        PriorityQueue<String> pQueue = new PriorityQueue<String>();
+        // make hashmaps
         HashMap hm = new HashMap();
         HashMap hm2 = new HashMap();
-
+        //split up the sting into an array
         String[] array = s.split(" ");
-
-        //Arrays.sort(array);
+        // for each element in the array, put it in a hashmap
+        // if there is already a word like it there, then just add to the value total
         for(int i = 0; i < array.length; i++){
-            //pQueue.add(array[i]);
             if(hm.get(array[i]) != null){
                 hm.put(array[i], (int) hm.get(array[i]) + 1);
             }else {
@@ -28,9 +27,16 @@ public class FrequencyPrint {
             }
         }
 
-        //Array<Object> b = chooseBucket(key);
-        int count = 0;
+        // Make a string to store things to output
+
         String output = "";
+
+        // for each key in the set
+        // check if there is already something in the second hashmap
+        // if there is nothing than put in the word in to the value side and the frequency number as the key
+        // if there is something then add the word to the string in the value
+        // so each bucket only has one key,value pair
+
         for (Object i : hm.keySet()) {
             if(hm2.get(hm.get(i)) != null){
                 for(int m = 0; m < (int) hm.get(i); m++ ){
@@ -43,38 +49,23 @@ public class FrequencyPrint {
                     hm2.put(hm.get(i), l);
                 }
             }else{
-                //for(int m = 0; m < (int) hm.get(i); m++ ){
-                    //output = output + " " + i;
                     String o = "";
                     for(int k = 0; k < (int) hm.get(i); k++ ){
                         o = o + " " + i;
                     }
                     hm2.put(hm.get(i), o);
 
-                //}
             }
-            count++;
-            //}
-        }
-        //for(int i= 0; i < array.length; i ++) {
-         //   System.out.println(pQueue.poll());
 
+        }
+
+        // for all the buckets in the second hash map, put them togehter in order
         for (Object i : hm2.keySet()) {
             output = output + " " +hm2.get(i);
 
         }
 
-        //for (Object i : hm.keySet()) {
-
-            //output = output + " " +hm2.get(i);
-            //}
-       // }
-        //}
-        /*System.out.println("The queue elements:");
-        Iterator itr = pQueue.iterator();
-        while (itr.hasNext())
-            System.out.println(itr.next());
-*/      int p = 0;
+        // cut off the extra spaces
         return output.trim();
     }
 

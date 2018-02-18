@@ -6,10 +6,13 @@ import java.util.HashMap;
 public class LargestSubArray {
     static int[] largestSubarray(int[] nums) {
         // Idea: go through the array
-        // with the current elemtn check if it is a valid set with each of the vlalues after it
-        // if it is a value set put a key value pari in the hash table that is index|# items included
+        // with the current element check if it is a valid set with each of the values after it
+        // if it is a value set put a key value pair in the hash table that is index|# items included
         // find the largest one at end
         // return range
+
+        // The problem is that it is n+n-1
+        // right now I am not using the hashmap
 
         HashMap hm = new HashMap();
         int maxVal = -1;
@@ -32,7 +35,7 @@ public class LargestSubArray {
         }
 
         for(Object i: hm.values()){
-            System.out.println(i);
+            ;
         }
         System.out.println(hm.values());
         return new int[]{maxKey, maxVal+maxKey -1};
