@@ -14,11 +14,12 @@ public class LargestSubArray {
         // The problem is that it is n+n-1
         // right now I am not using the hashmap
 
-        HashMap hm = new HashMap();
-        int maxVal = -1;
-        int maxKey = 0;
 
-        for(int i = 0; i < nums.length; i++){
+        // maximum
+
+        HashMap hm = new HashMap();
+
+/*        for(int i = 0; i < nums.length; i++){
             int sumValue = 0;
             sumValue = sumValue + getValue(nums[i]);
             for(int j = i+1 ; j < nums.length; j++){
@@ -29,16 +30,61 @@ public class LargestSubArray {
                         maxVal = newValue;
                         maxKey = i;
                     }
-                    hm.put(maxKey,maxVal);
+                    hm.put(maxVal, maxKey);
+                }
+            }
+        }*/
+
+        int sum = 0;
+        int maxDistance = 0;
+        int maxDistanceIndexStart = -1;
+        int maxDistanceIndexEnd = -1;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 0){
+                sum--;
+                // put into hash map the distances | index
+                if(hm.get(sum) == null){
+                    hm.put(sum, i);
+                }else{
+                    int curr = (int) hm.get(sum);
+                    hm.put(sum, i);
+                    int newDiff = i-curr;
+                    if(newDiff > maxDistance){
+                        maxDistance = newDiff;
+                        maxDistanceIndexStart = curr;
+                        maxDistanceIndexEnd = i;
+                    }
+                }
+            }else{
+                sum++;
+                // put into hash map the distances | index
+                if(hm.get(sum) == null){
+                    hm.put(sum, i);
+                }else{
+                    int curr = (int) hm.get(sum);
+                    hm.put(sum, i);
+                    int newDiff = i-curr;
+                    if(newDiff > maxDistance){
+                        maxDistance = newDiff;
+                        maxDistanceIndexStart = curr;
+                        maxDistanceIndexEnd = i;
+                    }
                 }
             }
         }
 
-        for(Object i: hm.values()){
-            ;
+
+/*        for(Object i: hm.keySet()){
+            //System.out.println(i);
         }
-        System.out.println(hm.values());
-        return new int[]{maxKey, maxVal+maxKey -1};
+
+        System.out.println(hm.KeySet());
+
+        for(Object i: hm.values()){
+            //System.out.println(i);
+        }*/
+
+        return new int[]{maxDistanceIndexStart, maxDistanceIndexEnd};
     }
 
 

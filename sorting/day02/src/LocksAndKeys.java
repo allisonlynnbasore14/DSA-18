@@ -22,14 +22,21 @@ public class LocksAndKeys {
 
     // Quick Sort Stuff
 
+    // Is NlogN
 
     public static void quickSort(char[] a, char[] b, int lo, int hi) {
         if(lo == hi){
             return;
         }
         if (lo < hi) {
+            // make inital parition
+            // Partition is in O(N)
+            // using the last elemetn of the keys to patrition the locks
+            // baisclly this is not "compaing element" but making them be put in order
+
             int p1 = partition(a, lo, hi, b[hi]);
-            int p2 = partition(b, lo, hi, a[p1]);
+
+            // Now just do it again for the nuts and the bolts
             quickSort(a, b, lo, p1-1);
             quickSort(a, b,p1+1, hi);
         }
