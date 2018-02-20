@@ -49,7 +49,7 @@ public class LargestSubArray {
                     int curr = (int) hm.get(sum);
                     hm.put(sum, i);
                     int newDiff = i-curr;
-                    if(newDiff > maxDistance){
+                    if(newDiff > maxDistance && sum == 0){
                         maxDistance = newDiff;
                         maxDistanceIndexStart = curr;
                         maxDistanceIndexEnd = i;
@@ -62,9 +62,9 @@ public class LargestSubArray {
                     hm.put(sum, i);
                 }else{
                     int curr = (int) hm.get(sum);
-                    hm.put(sum, i);
+                    //hm.put(sum, i);
                     int newDiff = i-curr;
-                    if(newDiff > maxDistance){
+                    if(newDiff > maxDistance && sum == 0){
                         maxDistance = newDiff;
                         maxDistanceIndexStart = curr;
                         maxDistanceIndexEnd = i;
@@ -82,9 +82,12 @@ public class LargestSubArray {
 
         for(Object i: hm.values()){
             //System.out.println(i);
-        }*/
+        }*/;
 
-        return new int[]{maxDistanceIndexStart, maxDistanceIndexEnd};
+
+        System.out.println(maxDistanceIndexStart);
+        System.out.println(maxDistanceIndexEnd);
+        return new int[]{maxDistanceIndexStart, maxDistanceIndexStart + maxDistance};
     }
 
 

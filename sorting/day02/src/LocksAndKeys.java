@@ -35,6 +35,7 @@ public class LocksAndKeys {
             // baisclly this is not "compaing element" but making them be put in order
 
             int p1 = partition(a, lo, hi, b[hi]);
+            int p2 = partition(b, lo, hi, a[p1]);
 
             // Now just do it again for the nuts and the bolts
             quickSort(a, b, lo, p1-1);
