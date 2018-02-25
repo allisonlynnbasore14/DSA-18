@@ -30,15 +30,16 @@ public class RadixSort {
             // When n = 2, I want to do temp /10/10 % 10
             // When n = 1; I want to do temp /10/10/10 %10
 
-            while (count > 0) {
+            while (count >= 0) {
+
                 if(temp < 10 && count != 0){
                     digit = 0;
                     L[digit].add(i);
-                    count = 0;
+                    count = -1;
                 }else if(count == 0){
                     digit = temp % 10;
                     L[digit].add(i);
-                    count = 0;
+                    count = -1;
                 }else{
                     temp = temp / 10;
                     count--;
@@ -72,7 +73,7 @@ public class RadixSort {
         int j = 0; // index in A to place numbers
         for (LinkedList<Integer> list : L) {
             // TODO: Put all numbers in the linked lists into A
-            for(int p = list.size()-1; p >= 0; p--){
+            for(int p = 0; p < list.size(); p++){
                 A[j] = list.get(p);
                 j++;
             }
@@ -96,12 +97,10 @@ public class RadixSort {
         System.out.println(w);
         System.out.println("ss");
         // TODO: Perform radix sort
-        for(int m = w; m >= 0 ; m --){
+        for(int m = 0; m <= w ; m ++){
             countingSortByDigit(A, k, m);
             for(int dd = A.length-1; dd > A.length-100; dd --) {
-                System.out.println(A[dd]);
             }
-            System.out.println("00000000000000000000000000000");
         }
     }
 
