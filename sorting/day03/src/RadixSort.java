@@ -47,32 +47,10 @@ public class RadixSort {
             }
 
 
-            // If temp/10
-/*            if(temp < 10){
-                // if there is only one number??
-                digit = temp;
-            }else{
-            }*/
-/*
-
-            String s = String.valueOf(temp);
-            if(n > s.length()){
-                L[0].add(i);
-            }else{
-                char ch = s.charAt(w-n);
-                L[digit].add((int) ch);
-            }
-*/
-
-            // TODO: Extract the relevant digit from i, and add i to the corresponding Linked List.
-//            System.out.println(digit);
-//            System.out.println("ff");
-//            System.out.println(L.length);
 
         }
         int j = 0; // index in A to place numbers
         for (LinkedList<Integer> list : L) {
-            // TODO: Put all numbers in the linked lists into A
             for(int p = 0; p < list.size(); p++){
                 A[j] = list.get(p);
                 j++;
@@ -81,10 +59,12 @@ public class RadixSort {
     }
 
     /**
-     * Runtime: TODO: Express your runtime in terms of n, b, and w
+     * Runtime: O(w*n), w = log(b)k , b = n
      *
      * n: length of array
      * w: word length of integers A in base b (equal to log base b of k (log_b k) )
+     *
+     * supports larger ranges of values
      *
      * @param b The base to use for radix sort
      */

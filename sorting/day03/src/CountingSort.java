@@ -5,6 +5,8 @@ public class CountingSort {
      * Runtime: O(n) + O(n+K) --> O(n+K), where k = the max value in the array
      *
      * k: maximum element in array A
+     *
+     * use when k is close to n
      */
     static void countingSort(int[] A) {
 
