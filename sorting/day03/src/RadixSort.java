@@ -36,6 +36,10 @@ public class RadixSort {
                     digit = 0;
                     L[digit].add(i);
                     count = -1;
+                }else if(n >= L.length){
+                    digit = 0;
+                    L[digit].add(i);
+                    count = -1;
                 }else if(count == 0){
                     digit = temp % 10;
                     L[digit].add(i);
@@ -78,9 +82,7 @@ public class RadixSort {
         System.out.println("ss");
         // TODO: Perform radix sort
         for(int m = 0; m <= w ; m ++){
-            countingSortByDigit(A, k, m);
-            for(int dd = A.length-1; dd > A.length-100; dd --) {
-            }
+            countingSortByDigit(A, k+1, m);
         }
     }
 

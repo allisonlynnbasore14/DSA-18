@@ -49,17 +49,17 @@ public class Problems {
 
             // When n = 4, if size = 4, return a[0], else 0
 
-            System.out.println(i.length());
-            if(n == 0){
+            int b = getNthCharacter(i, n);
+/*            if(n == 0){
                 digit = i.charAt(i.length()-1);
             }else{
-                if(i.length() <= n ){
+                if(i.length() < n ){
                     digit =  Character.MIN_VALUE;
                 }else{
-                    digit = i.charAt(i.length() - n -1);
+                    digit = i.charAt(i.length() - n );
                 }
-            }
-            int b = Character.getNumericValue(digit);
+            }*/
+            //int b = Character.getNumericValue(digit);
             L[b].add(i);
 //            while (count >= 0) {
 //                if (temp.length() < 2 && count != 0) {
@@ -82,7 +82,6 @@ public class Problems {
         for (LinkedList<String> list : L) {
             for (int p = 0; p < list.size(); p++) {
                 A[j] = list.get(p);
-                
                 j++;
             }
         }
@@ -92,7 +91,9 @@ public class Problems {
      * @param stringLength The length of each of the strings in S
      */
     static void sortStrings(String[] S, int stringLength) {
-        // TODO
+        for(int m = 0; m < stringLength ; m ++){
+            countingSortByCharacter(S, m);
+        }
     }
 
     /**
