@@ -42,8 +42,13 @@ public class RadixSort {
                     count = -1;
                 }else if(count == 0){
                     digit = temp % 10;
-                    L[digit].add(i);
-                    count = -1;
+                    if(L.length < digit){
+                        L[L.length -1].add(i);
+                       count = -1;
+                    }else{
+                        L[digit].add(i);
+                        count = -1;
+                   }
                 }else{
                     temp = temp / 10;
                     count--;
@@ -57,9 +62,11 @@ public class RadixSort {
         for (LinkedList<Integer> list : L) {
             for(int p = 0; p < list.size(); p++){
                 A[j] = list.get(p);
+                System.out.println(list.get(p));
                 j++;
             }
         }
+        System.out.println("DONE");
     }
 
     /**
@@ -82,7 +89,7 @@ public class RadixSort {
         System.out.println("ss");
         // TODO: Perform radix sort
         for(int m = 0; m <= w ; m ++){
-            countingSortByDigit(A, k+1, m);
+            countingSortByDigit(A, k, m);
         }
     }
 

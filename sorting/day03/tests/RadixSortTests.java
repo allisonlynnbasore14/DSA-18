@@ -37,8 +37,6 @@ public class RadixSortTests {
                 int[] A = generateRandomArrayOfSize(10000, 0, m);
                 int[] sorted = sort(A);
                 RadixSort.radixSort(A, b);
-                System.out.println(m);
-                System.out.println("done with");
                 assertArrayEquals(A, sorted);
             }
         }
