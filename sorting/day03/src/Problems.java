@@ -2,10 +2,16 @@ import java.util.LinkedList;
 
 public class Problems {
 
+
+
     static void sortNumsBetween100s(int[] A) {
-        // make the negatives positive * 2
+
+        // Time: O(n+K)
+        // Space: O(n)
+
+        // add 100 to everything
         // use coutning sort
-        // put negatives back
+        // subtract 100
         for(int i = 0; i < A.length; i++){
             A[i] = A[i] + 100;
         }
@@ -33,10 +39,10 @@ public class Problems {
     static void countingSortByCharacter(String[] A, int n) {
         // make a linked list
         // put in all the values of each postion in the string
-        //
+        // put it back into the array in order
 ;
-        LinkedList<String>[] L = new LinkedList[127];
-        for (int i = 0; i < 127; i++){
+        LinkedList<String>[] L = new LinkedList[26];
+        for (int i = 0; i < 26; i++){
             L[i] = new LinkedList<String>();
         }
 
@@ -45,36 +51,8 @@ public class Problems {
             String temp = i;
             int count = n;
 
-            // Break the string into chars
-
-            // When n = 4, if size = 4, return a[0], else 0
-
             int b = getNthCharacter(i, n);
-/*            if(n == 0){
-                digit = i.charAt(i.length()-1);
-            }else{
-                if(i.length() < n ){
-                    digit =  Character.MIN_VALUE;
-                }else{
-                    digit = i.charAt(i.length() - n );
-                }
-            }*/
-            //int b = Character.getNumericValue(digit);
             L[b].add(i);
-//            while (count >= 0) {
-//                if (temp.length() < 2 && count != 0) {
-//                    digit = 0;
-//                    L[digit].add(i);
-//                    count = -1;
-//                } else if (count == 0) {
-//                    digit = temp % 10;
-//                    L[digit].add(i);
-//                    count = -1;
-//                } else {
-//                    temp = temp / 10;
-//                    count--;
-//                }
-//            }
 
 
         }
@@ -106,6 +84,8 @@ public class Problems {
     }
 
     static void countingSort(int[] A) {
+
+        //
 
         int max = A[0];
 
