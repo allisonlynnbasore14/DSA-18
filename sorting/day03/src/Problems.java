@@ -35,11 +35,20 @@ public class Problems {
      * Use counting sort to sort the String array according to a character
      *
      * @param n The digit number (where 0 is the least significant digit)
+     *
+     *
+     *           Runtime: O(w*n), w = log(b)k , b = n
+     * Space: O(b)
      */
+
+
     static void countingSortByCharacter(String[] A, int n) {
         // make a linked list
         // put in all the values of each postion in the string
         // put it back into the array in order
+
+
+
 ;
         LinkedList<String>[] L = new LinkedList[26];
         for (int i = 0; i < 26; i++){
