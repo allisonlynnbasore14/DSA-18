@@ -1,10 +1,15 @@
 public class CountingSort {
 
     /**
+
      * Use counting sort to sort positive integer array A.
      * Runtime: O(n) + O(n+K) --> O(n+K), where k = the max value in the array
      *
      * Space: O(n)
+
+     * Use counting sort to sort non-negative integer array A.
+     * Runtime: TODO
+
      *
      * k: maximum element in array A
      *
