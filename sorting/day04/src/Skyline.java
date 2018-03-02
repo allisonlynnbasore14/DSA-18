@@ -36,11 +36,6 @@ public class Skyline {
     // Given an array of buildings, return a list of points representing the skyline
     public static List<Point> skyline(Building[] B) {
         List<Point> output = recurrsiveSkyline(B, 0, B.length-1);
-        for(int i= 0; i< output.size(); i++){
-            System.out.println(output.get(i).x);
-            System.out.println(output.get(i).y);
-            System.out.println("SS");
-        }
         return output;
     }
 
@@ -117,6 +112,13 @@ public class Skyline {
         List<Point> output = new ArrayList<>();
 
         while(counterA<A.size() && counterB<B.size()){
+            if(A.get(counterA).x == 36 || B.get(counterB).x == 36 ){
+
+                if(B.size()>2){
+                    System.out.println("here");
+                }
+
+            }
 
             // find which first x is smaller
             if(A.get(counterA).x < B.get(counterB).x){
@@ -126,9 +128,12 @@ public class Skyline {
                 }
 
                 if(output.size() >0){
-                    if(A.get(counterA).y == output.get(output.size()-1).y){
-                        flagDontAdd = true;
+                    if(currentAH < currentBH){
+                        if(A.get(counterA).y <= output.get(output.size()-1).y){
+                            flagDontAdd = true;
+                        }
                     }
+
                 }
                 // A is smaller
                 //if(A.get(counterA).y > currentBH ){
@@ -163,8 +168,10 @@ public class Skyline {
                     maxHeight = currentAH;
                 }
                 if(output.size() >0){
-                    if(B.get(counterB).y == output.get(output.size()-1).y){
-                        flagDontAdd = true;
+                    if(currentBH < currentAH){
+                        if(B.get(counterB).y <= output.get(output.size()-1).y){
+                            flagDontAdd = true;
+                        }
                     }
                 }
                 // B is smaller
@@ -193,10 +200,12 @@ public class Skyline {
                     }
 
                 }*/
+
                 //}
                 currentBH = B.get(counterB).y;
                 counterB++;
             }else{
+
                 // they are equal
                 if(B.get(counterB).y > A.get(counterA).y ){
                     output.add(B.get(counterB));
@@ -222,7 +231,7 @@ public class Skyline {
             }
         }
 
-        //Remove Points falling at same height
+
         for (int i = 0; i < output.size(); i++) {
             int j = i+1;
             while(j < output.size() && output.get(j).y == output.get(i).y){
@@ -231,6 +240,12 @@ public class Skyline {
             }
         }
 
+        for(int i= 0; i< output.size(); i++){
+            System.out.println(output.get(i).x);
+            System.out.println(output.get(i).y);
+            System.out.println("SS");
+        }
+        System.out.println("BEAK");
         return output;
     }
 
