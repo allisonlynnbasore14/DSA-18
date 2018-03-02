@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Skyline {
 
+    //O(N) = NlogN
+
     // Plan:
     // cut the skylines in half
     // find the skyline for each half
@@ -33,27 +35,44 @@ public class Skyline {
 
     // Given an array of buildings, return a list of points representing the skyline
     public static List<Point> skyline(Building[] B) {
+        List<Point> output = recurrsiveSkyline(B, 0, B.length-1);
+        for(int i= 0; i< output.size(); i++){
+            System.out.println(output.get(i).x);
+            System.out.println(output.get(i).y);
+            System.out.println("SS");
+        }
+        return output;
+    }
 
 
+    public static List<Point> recurrsiveSkyline(Building[] B, int lo, int hi) {
 
         // Baseline:
-        int breakpoint = 2;
-        if (B.length <= breakpoint) {
-            return merge(B);
+        if (lo >= hi) {
+            List<Point> output = new ArrayList<>();
+/*            System.out.println(lo);
+            System.out.println(hi);
+            System.out.println(B.length);
+            System.out.println("dd");*/
+
+            output.add(new Point(B[lo].l,B[lo].h));
+            output.add(new Point(B[lo].r,0));
+            return output;
         }
         // Divide:
-        int pivotIndex = (int) B.length / 2;
+        int pivotIndex = (int) (lo + hi) / 2;
 
         // Conquer:
-        List<Point> left = skyline(Arrays.copyOfRange(B, 0, pivotIndex));
-        List<Point> right = skyline(Arrays.copyOfRange(B, pivotIndex, B.length));
+        List<Point> left = recurrsiveSkyline(B, lo, pivotIndex);
+        List<Point> right = recurrsiveSkyline(B, pivotIndex+1, hi);
 
         // Combine:
 
 
         return combine(left, right);
-
     }
+
+
 
     public static Point getLPoint(Building b){
 
@@ -66,7 +85,166 @@ public class Skyline {
 
     }
 
+
+//    public static  List<Point> putTogether(List<Point> A, List<Point> B){
+//        List<Point> output = new ArrayList<>();
+//        int minX = 0;
+//        int maxX = 0;
+//        if(A.size() == 1 && B.size()==1){
+//            if(A.get(0).x < B.get(0).x){
+//                minX = A.get(0).x;
+//                maxX = B.get(0).x;
+//            }else{
+//                minX = B.get(0).x;
+//                maxX = A.get(0).x;
+//            }
+//            if()
+//            return output;
+//        }
+//        //if(A)
+//        //for(int i = )
+//
+//    }
+
+
     public static List<Point> combine(List<Point> A, List<Point> B){
+        int counterA = 0;
+        int counterB = 0;
+        int currentAH = 0;
+        int currentBH = 0;
+        boolean flagDontAdd = false;
+        boolean Bbigest = false;
+        List<Point> output = new ArrayList<>();
+
+        while(counterA<A.size() && counterB<B.size()){
+
+            // find which first x is smaller
+            if(A.get(counterA).x < B.get(counterB).x){
+                int maxHeight = A.get(counterA).y;
+                if(A.get(counterA).y < currentBH){
+                    maxHeight = currentBH;
+                }
+
+                if(output.size() >0){
+                    if(A.get(counterA).y == output.get(output.size()-1).y){
+                        flagDontAdd = true;
+                    }
+                }
+                // A is smaller
+                //if(A.get(counterA).y > currentBH ){
+                    //A is taller
+
+                if(!flagDontAdd){
+                    output.add(new Point(A.get(counterA).x,maxHeight));
+
+                }
+                flagDontAdd = false;
+
+
+
+/*                }else if(A.get(counterA).y == currentBH){
+                    if(currentBH == 0){
+                        output.add(A.get(counterA));
+                    }
+                }else{
+                    if(output.size() > 1){
+                        if(currentAH < currentBH){
+                            //output.add(new Point(A.get(counterA).x,currentBH));
+                        }
+                    }
+
+                }*/
+
+                currentAH = A.get(counterA).y;
+                counterA++;
+            }else if (A.get(counterA).x > B.get(counterB).x){
+                int maxHeight = B.get(counterB).y;
+                if(B.get(counterB).y < currentAH){
+                    maxHeight = currentAH;
+                }
+                if(output.size() >0){
+                    if(B.get(counterB).y == output.get(output.size()-1).y){
+                        flagDontAdd = true;
+                    }
+                }
+                // B is smaller
+                //if(B.get(counterB).y > currentAH ) {
+                    //B is taller
+
+                if(!flagDontAdd){
+                    output.add(new Point(B.get(counterB).x,maxHeight));
+
+                }
+                flagDontAdd = false;
+
+
+
+
+/*
+                if(B.get(counterB).y == currentAH){
+                    if(currentAH== 0){
+                        output.add(B.get(counterB));
+                    }
+                }else{
+                    if(output.size() > 1){
+                        if(currentBH < currentAH){
+                            //output.add(new Point(B.get(counterB).x,currentAH));
+                        }
+                    }
+
+                }*/
+                //}
+                currentBH = B.get(counterB).y;
+                counterB++;
+            }else{
+                // they are equal
+                if(B.get(counterB).y > A.get(counterA).y ){
+                    output.add(B.get(counterB));
+                }else{
+                    output.add(A.get(counterA));
+                }
+                currentBH = B.get(counterB).y;
+                currentAH = A.get(counterA).y;
+                counterA++;
+                counterB++;
+
+            }
+        }
+
+        if(counterA>=A.size()){
+            for(int i = counterB; i<B.size(); i++){
+                output.add(B.get(i));
+            }
+        }
+        if(counterB>=B.size()){
+            for(int i = counterA; i<A.size(); i++){
+                output.add(A.get(i));
+            }
+        }
+
+        //Remove Points falling at same height
+        for (int i = 0; i < output.size(); i++) {
+            int j = i+1;
+            while(j < output.size() && output.get(j).y == output.get(i).y){
+                output.remove(j);
+                j++;
+            }
+        }
+
+        return output;
+    }
+
+    public static boolean isTaller(Point a, Point b){
+        if(a.y > b.y){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+    public static List<Point> combineOld(List<Point> A, List<Point> B){
 
         int counterA = 0;
         int counterB = 0;
@@ -107,6 +285,9 @@ public class Skyline {
 
         Building a = B[0];
         Building b = B[1];
+        System.out.println(a.h);
+        System.out.println(b.h);
+        System.out.println("HEIGHGT");
         if( a.l <b.l && a.r > b.l && a.r < b.r){
             // They are overlaping
             // A is first
