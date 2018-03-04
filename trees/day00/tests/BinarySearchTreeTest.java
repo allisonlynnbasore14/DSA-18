@@ -134,6 +134,7 @@ public class BinarySearchTreeTest {
         List<Integer> list = Arrays.asList(sorted);
         list = new ArrayList<>(list);
         for (int j = 0; j <input.length; j++) {
+            System.out.println(j);
             int randomNum = ThreadLocalRandom.current().nextInt(input.length-j);
             bst.delete(list.get(randomNum));
             list.remove(randomNum);
