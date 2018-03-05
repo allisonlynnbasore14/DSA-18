@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Skyline {
 
-    //O(N) = NlogN
+    //O() = NlogN
 
     // Plan:
     // cut the skylines in half
@@ -80,28 +80,6 @@ public class Skyline {
 
     }
 
-
-//    public static  List<Point> putTogether(List<Point> A, List<Point> B){
-//        List<Point> output = new ArrayList<>();
-//        int minX = 0;
-//        int maxX = 0;
-//        if(A.size() == 1 && B.size()==1){
-//            if(A.get(0).x < B.get(0).x){
-//                minX = A.get(0).x;
-//                maxX = B.get(0).x;
-//            }else{
-//                minX = B.get(0).x;
-//                maxX = A.get(0).x;
-//            }
-//            if()
-//            return output;
-//        }
-//        //if(A)
-//        //for(int i = )
-//
-//    }
-
-
     public static List<Point> combine(List<Point> A, List<Point> B){
         int counterA = 0;
         int counterB = 0;
@@ -113,11 +91,6 @@ public class Skyline {
 
         while(counterA<A.size() && counterB<B.size()){
             if(A.get(counterA).x == 36 || B.get(counterB).x == 36 ){
-
-                if(B.size()>2){
-                    System.out.println("here");
-                }
-
             }
 
             // find which first x is smaller

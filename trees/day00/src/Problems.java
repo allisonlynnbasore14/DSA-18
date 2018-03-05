@@ -16,6 +16,8 @@ public class Problems {
 
         // Base case
 
+        //O(N log N)
+
         if(values.size() <= 1 ){
             if(values.size() == 0){
                 return output;

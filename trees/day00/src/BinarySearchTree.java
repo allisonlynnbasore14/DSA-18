@@ -37,6 +37,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
         // go to left then root then right
         List<T> list = new ArrayList<T>();
 
+        //O(N)
+
         //Base Case
 
         if(n == null){
@@ -93,14 +95,34 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
             return replacement;
         }else {
+
+            // delete the child instead
+
             // Case 3: two children
             // replace n with succ or pres
             // recrusively deltet the succ or pres
-            TreeNode<T> p = findSuccessor(n);
+            TreeNode<T> p = findPredecessor(n);
             replacement = p;
+            TreeNode<T> r1 = replacement.leftChild;
+            TreeNode<T> r2 = replacement.rightChild;
+            //TreeNode<T> par = n.parent;
             n.replaceWith(replacement);
-
+            replacement.leftChild = n.leftChild;
+            replacement.rightChild = n.rightChild;
             delete(p);
+
+            if(r1 != null){
+                this.add(r1.key);
+            }
+            if(r2 != null){
+                this.add(r2.key);
+            }
+
+            //add(r1);
+            //add(r2);
+            //n.parent = par;
+            ;
+
             return replacement;
         }
 
@@ -116,6 +138,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
         return null;
     }
+
+    // O(N) for worst
+    // O(NlogN)
 
     public T findSuccessor(T key) {
         TreeNode<T> n = find(root, key);
@@ -136,7 +161,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }*/
 
     private TreeNode<T> findPredecessor(TreeNode<T> n) {
-        // Needs to be a recursive thing that
         // Base case of null
         // 1) The right most node on your left sideS
         // 2) if key is < root, sucesss = root and , search recrusivle into left
@@ -153,8 +177,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
             target = n.leftChild;
             while (target != null) {
 
-
-                System.out.println(target);
                 if (target.rightChild == null) {
                     //System.out.println(target);
                     return target;
@@ -164,9 +186,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
             return target;
         }
 
-/*        if (root.key.compareTo(target.key) >= 0) {
-            return findPredecessor(root.leftChild);
-        }*/
 
         target = n;
         while(target.parent != null){
@@ -181,37 +200,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     }
 
-/*        if(target.parent != null){
-            if(target.parent.key.compareTo(target.key) <= 0){
-                return target.parent;
-            }else if(target.leftChild == null){
-                if(target.parent.parent != null) {
-                    if(target.parent.parent.key.compareTo(target.parent.key) <=0){
-                        System.out.println(target.parent);
-                        System.out.println("ddd");
-                        return target.parent.parent;
-                    }
-                }
-            }
-        }
-        if(n.leftChild != null) {
-            target = n.leftChild;
-
-        }else{
-
-
-
-            if( n.parent.key.equals(7)){
-                System.out.println("lll");
-            }
-            return null;
-        }
-
-
-
-       // System.out.println(target);
-        return target;
-    }*/
 
     private TreeNode<T> findSuccessor(TreeNode<T> n) {
 
