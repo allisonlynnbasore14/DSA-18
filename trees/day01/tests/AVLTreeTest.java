@@ -18,12 +18,32 @@ public class AVLTreeTest {
         return sorted;
     }
 
+/*    @BeforeEach
+    public void ExtraTest() {
+
+        AVLTree<Integer> bst = new AVLTree<>();
+        for (int i = 0; i < Math.pow(2, 3); i++) {
+            bst.add(i);
+            //assertValidAVL(bst.root);
+        }
+
+        assertValidAVL(bst.root);
+
+        for (int i = 0; i < Math.pow(2, 12); i += 100) {
+            bst.delete(i);
+            assertValidAVL(bst.root);
+        }
+    }*/
+
     @BeforeEach
     public void setUp() throws Exception {
+
         bsts = new AVLTree[5];
         for (int i = 0; i < bsts.length; i++) {
             bsts[i] = new AVLTree<>();
         }
+
+
         inputs = new Integer[5][];
         inputs[0] = new Integer[]{3, 2, 1, 4};
         inputs[1] = new Integer[]{3, 1, 2, 7, 10, -3, 5, -10, 16, 13};
@@ -118,11 +138,13 @@ public class AVLTreeTest {
 
     @Test
     public void balanceTest() {
+
         AVLTree<Integer> bst = new AVLTree<>();
         for (int i = 0; i < Math.pow(2, 12); i++) {
             bst.add(i);
             assertValidAVL(bst.root);
         }
+
 
         assertValidAVL(bst.root);
 
@@ -131,4 +153,5 @@ public class AVLTreeTest {
             assertValidAVL(bst.root);
         }
     }
+
 }
