@@ -28,19 +28,40 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 
     // make a left-leaning link lean to the right
     TreeNode<T> rotateRight(TreeNode<T> h) {
-        // TODO
-        return h;
+        TreeNode<T> x = h.leftChild;
+        TreeNode<T> b = x.rightChild;
+        boolean c = h.color;
+        x.rightChild = h;
+        h.leftChild = b;
+        h.color = x.color;
+        x.color = c;
+        return x;
     }
 
     // make a right-leaning link lean to the left
     TreeNode<T> rotateLeft(TreeNode<T> h) {
-        // TODO
-        return h;
+        TreeNode<T> x = h.rightChild;
+        TreeNode<T> b = x.leftChild;
+        boolean c = h.color;
+        x.leftChild = h;
+        h.rightChild = b;
+        h.color = x.color;
+        x.color = c;
+        return x;
     }
 
     // flip the colors of a TreeNode and its two children
     TreeNode<T> flipColors(TreeNode<T> h) {
-        // TODO
+        boolean c = h.color;
+        TreeNode<T> x1 = h.rightChild;
+        TreeNode<T> x2 = h.leftChild;
+        h.color = x1.color;
+        if(x1 != null){
+            x1.color = c;
+        }
+        if(x2 != null){
+            x2.color = c;
+        }
         return h;
     }
 
@@ -53,19 +74,45 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
      * return balanced node
      */
     private TreeNode<T> balance(TreeNode<T> h) {
-        // TODO
+
+        if(h.rightChild != null && h.rightChild.color){
+            h = rotateLeft(h);
+        }
+
+        if(h.rightChild != null && h.rightChild.color){
+            if(h.leftChild != null && h.leftChild.color){
+                h = flipColors(h);
+            }
+        }
+
+        if(h.color && h.leftChild != null && h.leftChild.color){
+            h = rotateRight(h);
+        }
         return h;
     }
 
 
     /**
-     * Recursively insert a new node into the BST
+     * Recursively insert a new node into the Bbalance(ST
      * Runtime: TODO
      */
     @Override
     TreeNode<T> insert(TreeNode<T> h, T key) {
-        h = super.insert(h, key);
-        // TODO: use balance to correct for the three rotation cases
+        if(h == null){
+            super.insert(h, key);
+            return new TreeNode<T>(key, true);
+            //return new TreeNode<T>(key, true);
+        }
+
+        if(h.key.compareTo(key) < 0){
+            insert(h.rightChild, key);
+            //super.insert(h, key);
+        }else if (h.key.compareTo(key) >= 0){
+            insert(h.leftChild, key);
+            //super.insert(h, key);
+        }
+
+        h = balance(h);
         return h;
     }
 

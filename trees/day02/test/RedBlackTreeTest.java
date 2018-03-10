@@ -71,38 +71,38 @@ public class RedBlackTreeTest {
         assertEquals(RedBlackTree.BLACK, r.rightChild.rightChild.color);
     }
 
-
-    @Test
-    public void testAdd0() {
-        RedBlackTree<Integer> rbt = new RedBlackTree<>();
-        List<Integer> input = Arrays.asList(3, 1);
-        for (Integer i: input) {
-            rbt.add(i);
-        }
-        assertEquals(3, (int) rbt.root.key);
-        assertEquals(1, (int) rbt.root.leftChild.key);
-        assertEquals(RedBlackTree.RED, rbt.root.leftChild.color);
-        assertNull(rbt.root.rightChild);
-        isRedBlack(rbt);
-        containsCorrectValues(rbt, input);
-    }
-
-
-    @Test
-    public void testAdd1() {
-        RedBlackTree<Integer> rbt = new RedBlackTree<>();
-        List<Integer> input = Arrays.asList(3, 1, 2);
-        for (Integer i: input) {
-            rbt.add(i);
-        }
-        assertEquals(2, (int) rbt.root.key);
-        assertEquals(1, (int) rbt.root.leftChild.key);
-        assertEquals(3, (int) rbt.root.rightChild.key);
-        assertEquals(RedBlackTree.BLACK, rbt.root.leftChild.color);
-        assertEquals(RedBlackTree.BLACK, rbt.root.rightChild.color);
-        isRedBlack(rbt);
-        containsCorrectValues(rbt, input);
-    }
+//
+//    @Test
+//    public void testAdd0() {
+//        RedBlackTree<Integer> rbt = new RedBlackTree<>();
+//        List<Integer> input = Arrays.asList(3, 1);
+//        for (Integer i: input) {
+//            rbt.add(i);
+//        }
+//        assertEquals(3, (int) rbt.root.key);
+//        assertEquals(1, (int) rbt.root.leftChild.key);
+//        assertEquals(RedBlackTree.RED, rbt.root.leftChild.color);
+//        assertNull(rbt.root.rightChild);
+//        isRedBlack(rbt);
+//        containsCorrectValues(rbt, input);
+//    }
+//
+//
+//    @Test
+//    public void testAdd1() {
+//        RedBlackTree<Integer> rbt = new RedBlackTree<>();
+//        List<Integer> input = Arrays.asList(3, 1, 2);
+//        for (Integer i: input) {
+//            rbt.add(i);
+//        }
+//        assertEquals(2, (int) rbt.root.key);
+//        assertEquals(1, (int) rbt.root.leftChild.key);
+//        assertEquals(3, (int) rbt.root.rightChild.key);
+//        assertEquals(RedBlackTree.BLACK, rbt.root.leftChild.color);
+//        assertEquals(RedBlackTree.BLACK, rbt.root.rightChild.color);
+//        isRedBlack(rbt);
+//        containsCorrectValues(rbt, input);
+//    }
 
 
     @Test
