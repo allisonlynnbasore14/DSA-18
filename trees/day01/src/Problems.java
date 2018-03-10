@@ -16,14 +16,24 @@ public class Problems {
         //hs.heapify(A);
         RadixSort.radixSort(A, A.length);
 //
+//
+//        if(A.length == 4){
+//            int a = A.length-1;
+//            int b = A.length-3;
+//            int first = A[a]*10 + A[b];
+//            int second = A[a-1]*10+ A[b-1]*1;
+//
+//            return first + second;
+//        }
+
         if(A.length == 5){
             int first = A[0]*100 + A[2]*10 + A[4];
             int second = A[1]*10+ A[3];
 
             return first + second;
         }
-//
-//        if(A.length == 4){
+
+        //        if(A.length == 4){
 //            int a = A.length-1;
 //            int b = A.length-3;
 //            int first = A[a]*10 + A[b];
