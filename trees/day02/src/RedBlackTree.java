@@ -70,7 +70,7 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
      * fix three cases:
      *   1. h.right is red
      *   2. h.left is red, and h.left.left is red
-     *   2. h.left and h.right are red
+     *   3. h.left and h.right are red
      * return balanced node
      */
     private TreeNode<T> balance(TreeNode<T> h) {
@@ -79,14 +79,15 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
             h = rotateLeft(h);
         }
 
+
+        if( h.leftChild != null && h.leftChild.color && h.leftChild.leftChild != null && h.leftChild.leftChild.color){
+            h = rotateRight(h);
+        }
+
         if(h.rightChild != null && h.rightChild.color){
             if(h.leftChild != null && h.leftChild.color){
                 h = flipColors(h);
             }
-        }
-
-        if(h.color && h.leftChild != null && h.leftChild.color){
-            h = rotateRight(h);
         }
         return h;
     }
@@ -98,20 +99,27 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
      */
     @Override
     TreeNode<T> insert(TreeNode<T> h, T key) {
-        if(h == null){
-            super.insert(h, key);
-            return new TreeNode<T>(key, true);
-            //return new TreeNode<T>(key, true);
-        }
 
-        if(h.key.compareTo(key) < 0){
-            insert(h.rightChild, key);
-            //super.insert(h, key);
-        }else if (h.key.compareTo(key) >= 0){
-            insert(h.leftChild, key);
-            //super.insert(h, key);
-        }
+//        if(root != null){
+//            System.out.println(root.key.toString());
+//        }
+//
+//        if(h == null){
+//            //h = new TreeNode<T>(key, true);
+//                    //h = super.insert(h, key);
+//            //return super.insert(h, key);
+//            return new TreeNode<T>(key, true);
+//        }
+//
+//        if(h.key.compareTo(key) < 0){
+//            h = insert(h.rightChild, key);
+//            //super.insert(h, key);
+//        }else if (h.key.compareTo(key) >= 0){
+//            h = insert(h.leftChild, key);
+//            //super.insert(h, key);
+//        }
 
+        h = super.insert(h, key);
         h = balance(h);
         return h;
     }
