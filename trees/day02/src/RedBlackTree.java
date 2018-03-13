@@ -95,7 +95,7 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 
     /**
      * Recursively insert a new node into the Bbalance(ST
-     * Runtime: TODO
+     * Runtime: log(n)
      */
     @Override
     TreeNode<T> insert(TreeNode<T> h, T key) {
