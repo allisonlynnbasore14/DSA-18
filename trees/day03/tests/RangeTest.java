@@ -72,6 +72,12 @@ public class RangeTest {
         assertEquals(correctRange(inputs[0], 1, 1).length, rangeTree[0].rangeCount(1, 1));
     }
 
+
+    @Test
+    void testRank() {
+        assertEquals(3, rangeTree[0].rank(3,rangeTree[0].root, 0));
+    }
+
     @Test
     void testRangeCount3() {
         assertEquals(correctRange(inputs[0], 2, 5).length, rangeTree[0].rangeCount(2, 5));

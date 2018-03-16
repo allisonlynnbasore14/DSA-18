@@ -74,6 +74,11 @@ public class PeakFindingTest {
                 nums[i][j] = i + j;
             }
         }
+        int[] c = PeakFinding.findTwoDPeak(nums);
+        for(int i = 0; i< c.length; i++){
+            System.out.println(";;;;");
+            System.out.println(c[i]);
+        }
         isValidTwoDSolution(nums, PeakFinding.findTwoDPeak(nums));
     }
 
@@ -84,6 +89,11 @@ public class PeakFindingTest {
             for (int j = 0; j < nums[0].length; j++) {
                 nums[i][j] = 0;
             }
+        }
+        int[] c = PeakFinding.findTwoDPeak(nums);
+        for(int i = 0; i< c.length; i++){
+            System.out.println(";;;;");
+            System.out.println(c[i]);
         }
         isValidTwoDSolution(nums, PeakFinding.findTwoDPeak(nums));
     }
@@ -96,6 +106,11 @@ public class PeakFindingTest {
                 nums[i][j] = -1 * Math.abs(i - 50) - Math.abs(j - 50) + 100;
             }
         }
+        int[] c = PeakFinding.findTwoDPeak(nums);
+        for(int i = 0; i< c.length; i++){
+            System.out.println(";;;;");
+            System.out.println(c[i]);
+        }
         isValidTwoDSolution(nums, PeakFinding.findTwoDPeak(nums));
     }
 
@@ -106,6 +121,11 @@ public class PeakFindingTest {
             for (int j = 0; j < nums[0].length; j++) {
                 nums[i][j] = Math.abs(i - 50) + Math.abs(j - 50);
             }
+        }
+        int[] c = PeakFinding.findTwoDPeak(nums);
+        for(int i = 0; i< c.length; i++){
+            System.out.println(";;;;");
+            System.out.println(c[i]);
         }
         isValidTwoDSolution(nums, PeakFinding.findTwoDPeak(nums));
     }
@@ -147,6 +167,12 @@ public class PeakFindingTest {
                 {1, 2, 5, 4, 3, 6, 7},
                 {1, 2, 5, 4, 3, 6, 7},
         };
+        System.out.println("lflf");
+        int[] c = PeakFinding.findTwoDPeak(nums);
+        for(int i = 0; i< c.length; i++){
+            System.out.println(";;;;");
+            System.out.println(c[i]);
+        }
         isValidTwoDSolution(nums, PeakFinding.findTwoDPeak(nums));
     }
 

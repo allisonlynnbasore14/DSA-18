@@ -86,6 +86,26 @@ public class AVLRangeTree extends BinarySearchTree<Integer> {
         return 0;
     }
 
+
+    public int rank( int k, RangeNode m, int val){
+
+        if(m == null){
+            val = 0;
+            return 0;
+        }
+
+        if(m.key.compareTo(k)<= 0){
+            int a = rank(k, m.leftChild , val+1);
+            int b = rank(k, m.rightChild , val+1);
+        }
+
+        if(m.key.compareTo(k)> 0){
+            int a = rank(k, m.leftChild , val);
+            int b = rank(k, m.rightChild , val);
+        }
+
+        return val;
+    }
     /**
      * Returns the balance factor of the subtree. The balance factor is defined
      * as the difference in height of the left subtree and right subtree, in
