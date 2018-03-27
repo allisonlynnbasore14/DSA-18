@@ -129,20 +129,15 @@ public class PeakFinding {
         }else if(p < 0 && pRow > 0){
             return findTwoDPeakRecur(nums, clo, mid-1, midRow+1, rhi);
         }else if(pRow == 0){
-            System.out.println(midRow);
-            System.out.print(mRow);
             return new int[]{midRow, mRow};
         }else if(p == 0){
-            System.out.println(mid);
-            System.out.print(m);
             return new int[]{mid,m};
         }else if(p>0 && pRow > 0){
             return findTwoDPeakRecur(nums, mid+1, chi, midRow+1, rhi);
         }else if(p>0 && pRow < 0){
             return findTwoDPeakRecur(nums, mid+1, chi, rlo, midRow-1);
         }
-        System.out.println(mRow);
-        System.out.print( nums.length -1);
+
         return new int[]{mRow, nums.length -1};
     }
 /*
