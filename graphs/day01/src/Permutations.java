@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Permutations {
 
@@ -14,11 +12,14 @@ public class Permutations {
             unused.add(u);
             curr.removeLast();
         }
+
     }
 
     public static List<List<Integer>> permutations(List<Integer> A) {
-        // TODO
         List<List<Integer>> permutations = new LinkedList<>();
+        LinkedList<Integer> holder = new LinkedList<>();
+        Set<Integer> options = new HashSet<>(A);
+        backtrack(holder, options ,permutations);
         return permutations;
     }
 
