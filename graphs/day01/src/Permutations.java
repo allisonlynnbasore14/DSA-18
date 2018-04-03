@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Permutations {
 
+
     // space = 0(n)
     // time = !n
 
@@ -17,6 +18,7 @@ public class Permutations {
         }
 
     }
+
 
     public static List<List<Integer>> permutations(List<Integer> A) {
         List<List<Integer>> permutations = new LinkedList<>();
