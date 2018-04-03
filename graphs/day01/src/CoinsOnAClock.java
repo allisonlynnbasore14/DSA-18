@@ -4,6 +4,10 @@ import java.util.*;
 
 public class CoinsOnAClock {
 
+    // O(3^n)
+
+    // space = 0(n)
+
     public static List<char[]> coinsOnAClock(int pennies, int nickels, int dimes, int hoursInDay) {
         // for each type of coin, make an array of chars
         //LinkedList<Character> coins = new LinkedList<>();

@@ -2,6 +2,9 @@ import java.util.*;
 
 public class Permutations {
 
+    // space = 0(n)
+    // time = !n
+
     private static void backtrack(LinkedList<Integer> curr, Set<Integer> unused, List<List<Integer>> subsets) {
         if (unused.isEmpty())
             subsets.add(new LinkedList<>(curr));

@@ -4,6 +4,9 @@ import java.util.List;
 
 public class NQueens {
 
+    // n! * n
+
+    // O(n^2) space
 
     /**
      * Checks the 45° and 135° diagonals for an existing queen. For example, if the board is a 5x5
