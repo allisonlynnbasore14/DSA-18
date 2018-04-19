@@ -5,6 +5,7 @@ public class EdgeWeightedGraph {
     private HashSet<Edge>[] edges; // An array of hashSet. edges[v] is a HashSet of all v's edges
     private HashSet<Integer> vertices;
     private int E;
+    private int Eindex;
 
     public EdgeWeightedGraph(int V) { //initialize a graph with V number of  vertices
         edges = new HashSet[V];
@@ -18,10 +19,17 @@ public class EdgeWeightedGraph {
         return vertices.size();
     }
 
+    public void setEindex(int e){
+        Eindex = e;
+    }
+
     public int numberOfE() {
         return E;
     }
 
+    public int getEindex() {
+        return Eindex;
+    }
 
     public void addEdge(Edge e) {
         int v = e.either();
@@ -32,6 +40,39 @@ public class EdgeWeightedGraph {
         edges[w].add(e);
         E++;
     }
+
+    public void deleteEdge(Edge targetEdge, int edgeIndex){
+        HashSet<Edge>[] tempEdges = new HashSet[numberOfV()-1];
+
+        boolean shift = false;
+        for(int i = 0;i<Eindex;i++){
+            Iterable<Edge>  it = edges(i);
+            if(i != edgeIndex){
+                if(shift){
+                   ;
+                    if(i==7){
+                        int stop = 0;
+                    }
+                    tempEdges[i-1] = new HashSet<>();
+                }else{
+                    tempEdges[i] = new HashSet<>();
+                }
+                for (Edge edg : it) {
+                    if(shift){
+                        tempEdges[i-1].add(edg);
+                    }else{
+                        tempEdges[i].add(edg);
+                    }
+                }
+            }else{
+                shift = true;
+            }
+        }
+        edges = tempEdges;
+        E--;
+        Eindex--;
+    }
+
 
     public Iterable<Edge> edges(int v) { // return a set of v's edges
         return edges[v];
