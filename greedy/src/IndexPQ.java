@@ -6,7 +6,7 @@ public class IndexPQ<Key extends Comparable<Key>> {
     private int n;           // number of elements on PQ
     private int[] pq;        // binary heap using 1-based indexing
     private int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
-    private Key[] keys;      // keys[i] = priority of i
+    public Key[] keys;      // keys[i] = priority of i
 
 
     public IndexPQ(int maxN) { // create a PQ of maximum size m
@@ -50,6 +50,15 @@ public class IndexPQ<Key extends Comparable<Key>> {
         keys[min] = null;    // to help with garbage collection
         pq[n + 1] = -1;        // not needed
         return min;
+    }
+
+    public int get(int i){
+        return pq[i];
+    }
+
+    public Key getMinsWeight(){
+        int min = pq[1];
+        return keys[min];
     }
 
 
