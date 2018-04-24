@@ -44,11 +44,6 @@ public class BarnRepair {
     }
 
     public static int barnRepairRecurConden(int M, ArrayList<Integer> occupied, int numGroups, int numSpacesCovered, int spaces, ArrayList<Integer> noMergeIndexes){
-
-        if(occupied.size() == 80){
-            int stop = 100;
-        }
-        
         if(spaces == 0){
             numGroups++;
             numSpacesCovered = numSpacesCovered+occupied.size();
@@ -56,9 +51,6 @@ public class BarnRepair {
         }
 
         if(spaces+1 <= M){
-            System.out.println("spaces+1 = " + spaces+1);
-            System.out.println("num spaces= " + numSpacesCovered);
-            System.out.println("num spaces= " + occupied.size());
             return numSpacesCovered + occupied.size();
             // M - number of current boards = number of groups, return number of covered stalls
         }
@@ -68,9 +60,6 @@ public class BarnRepair {
         int gapGateNum = -1;
         int gapGateIndex = -1;
         for(int i=1;i<occupied.size();i++){
-            if(i == 69){
-                int go = 100;
-            }
             if(occupied.get(i)-occupied.get(i-1)-1<minGap && occupied.get(i)-occupied.get(i-1)-1 > 0 && !noMergeIndexes.contains(i-1)){
                 minGap = occupied.get(i)-occupied.get(i-1)-1;
                 gapGateNum = occupied.get(i);
@@ -78,10 +67,6 @@ public class BarnRepair {
             }
         }
 
-        System.out.println("minGap = " + minGap);
-        if(gapGateIndex == 72){
-            int maybe = 100;
-        }
         noMergeIndexes.add(gapGateIndex-1);
         spaces = spaces-1;
         numSpacesCovered = numSpacesCovered+minGap;

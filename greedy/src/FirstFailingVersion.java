@@ -1,7 +1,8 @@
-public class FirstFailingVersion {
+public class  FirstFailingVersion {
 
     public static long firstBadVersion(long n, IsFailingVersion isBadVersion) {
         // TIME: O(log n) I think
+        //binary serach
 
 
         long r = n;
